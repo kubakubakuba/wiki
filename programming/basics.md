@@ -35,7 +35,7 @@ jakub@server:~$ hello?
 -bash: Hello?: command not found
 ```
 
-What we will see, is that the console has tried to execute the command we have written, but failed miserably. The other thing we can see it the part:
+What we will see, is that the console has tried to execute the command we have written, but failed miserably. The other thing we can see is the part:
 
 ```bash
 jakub@server:~$
@@ -81,20 +81,20 @@ All of these are of course valid, for a specific program. The programmer who des
 
 Here I will list the most basic (and useful) commands you can use in the console.
 
-`ls [directory]` - list files in the directory, if you need more details, use a flag `-la`, which essentialy shows all files with all details.
-`mv [source] [destination]` - move a file or directory from source to destination
-`cp [source] [destination]` - copy a file or directory from source to destination (same as `mv`, but leaves the original file in place)
-`rm [file]` - remove a file
-`mkdir [directory]` - create a directory
-`rmdir [directory]` - remove a directory
-`cd [directory]` - change directory
-`pwd` - print working directory
-`cat [file]` - print the contents of a file
-`echo [text]` - print text to the console
-`man [command]` - show the manual page for a command (a very useful command which we will be using)
-`nano [file]` - open a file in the nano text editor
-`vim [file]` - open a file in the vim text editor (if you wish to exit, press `Esc` then type `:q!` and press `Enter` ;) )
-`clear` - clear the console (useful if you have a lot of output and you want to see the top of the console)
+- `ls [directory]` - list files in the directory, if you need more details, use a flag `-la`, which essentialy shows all files with all details.
+- `mv [source] [destination]` - move a file or directory from source to destination
+- `cp [source] [destination]` - copy a file or directory from source to destination (same as `mv`, but leaves the original file in place)
+- `rm [file]` - remove a file
+- `mkdir [directory]` - create a directory
+- `rmdir [directory]` - remove a directory
+- `cd [directory]` - change directory
+- `pwd` - print working directory
+- `cat [file]` - print the contents of a file
+- `echo [text]` - print text to the console
+- `man [command]` - show the manual page for a command (a very useful command which we will be using)
+- `nano [file]` - open a file in the nano text editor
+- `vim [file]` - open a file in the vim text editor (if you wish to exit, press `Esc` then type `:q!` and press `Enter` ;) )
+- `clear` - clear the console (useful if you have a lot of output and you want to see the top of the console)
 
 Now, try to create a directory, with a name `hello`, inside it a directory `world`, and inside it a simple text file `hello.txt`. Then, print the contents of the file to the console.
 Then go back to the home directory (this is done by running `cd` without any arguments), and remove the directory `hello` with all its contents.

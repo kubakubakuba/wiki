@@ -66,7 +66,6 @@ jakub@NitroN50-620:~$
 We have now done a simple redundant script, that creates a and deletes a file to print `Hello, World!`. It can of course be made much simpler.
 
 ```bash
-#!/usr/bin/env bash
 echo "Hello, World!"
 ```
 
@@ -75,7 +74,6 @@ echo "Hello, World!"
 The thing you have seen in the first script `<` and `>` are called redirections. They are used to redirect the output of a command to a file or from a file to a command. The `>` is used to redirect the output of a command to a file, and the `<` is used to redirect the input of a command from a file. The `>>` is used to append the output to a file.
 
 ```bash
-#!/usr/bin/env bash
 echo "Hello, World!" > world
 ```
 
@@ -86,7 +84,6 @@ To redirect to `stdout` (standard output) you can use `1>`, to `stderr` (standar
 Another thing to use in bash is so called piping. It is used to take the output of one command and use it as the input of another. The `|` is used to pipe the output of one command to the input of another.
 
 ```bash
-#!/usr/bin/env bash
 echo "Hello, World!" | cat
 ```
 
