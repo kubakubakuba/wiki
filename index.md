@@ -13,7 +13,7 @@ hero:
       link: /programming
     - theme: alt
       text: ExpaCalendar
-      link: /expacalendar
+      link: /ExpaCalendar
     #- theme: alt
     #  text: API Examples
     #  link: /api-examples
