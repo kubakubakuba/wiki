@@ -62,7 +62,7 @@ The main folder on Linux is simply called `/`. This is the root directory, and a
 - `/tmp` - contains temporary files
 - `/usr` - contains user binaries, libraries, documentation, and source code
 
-So the `~` is actually an abbreviation for `/home/username`, where `username` is the name of the user.
+So the `~` symbolizes the home directory of the user, located in the variable `$HOME`. The home directory is the directory where the user is placed after logging in. It is usually located in `/home/username`, but it can be changed in the `/etc/passwd` file.
 
 ### Basic commands
 
