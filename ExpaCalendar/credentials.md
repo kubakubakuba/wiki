@@ -17,4 +17,4 @@ Under credentials click on create credentials and select OAuth client ID
 Select desktop app and click on create.
 
 Then back on the Credentials page click on the newly created OAuth 2.0 Client ID and download the credentials.json file.
-![oauth](oauth.jpg)(image.png)
+![oauth](oauth.jpg)

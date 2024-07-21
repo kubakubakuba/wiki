@@ -17,6 +17,7 @@ export default defineConfig({
 		sidebar: [
 			{
 				text: 'Programming',
+				link: '/programming/',
 				items: [
 					{ text: 'The basics', link: '/programming/basics' },
 					{ text: 'Writing a first program', link: '/programming/first' }
@@ -24,6 +25,7 @@ export default defineConfig({
 			},
 			{
 				text: 'ExpaCalendar',
+				link: '/ExpaCalendar/',
 				items: [
 					{ text: 'Credentials', link: '/ExpaCalendar/credentials' }
 				]

@@ -7,7 +7,7 @@ Generator of pdf calendars using [Google Calendar API](https://developers.google
 ## Usage
 Create a Google API application with access to Calendar API and create OAuth 2 credentials for it ([here is how](./credentials)).
 
-Clone the repository and create a `Config` class, that defines the pdf generation.
+Clone the repository and create a `Config` class that defines the pdf generation.
 ```python
 class Config:
 	def __init__(self):
