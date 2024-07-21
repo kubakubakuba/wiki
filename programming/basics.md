@@ -183,12 +183,18 @@ jakub@server:~$ which nano
 /usr/bin/nano
 ```
 
-So as you can clearly see, what is possible to happen is that a program can exist, that is not in the `PATH` variable, and we can run it by specifying the full path to the program.
+You now can run a program using `./program-name`, when you are in the same directory as the program. If you wish to run a program from anywhere, you can add it to the `PATH` variable.
 
 ```bash
-jakub@server:~$ /usr/bin/code
+jakub@server:~$ export PATH=$PATH:/home/jakub/hello
+jakub@server:~$ world
+Hello, world!
 ```
 
+### File extensions
+
 As you can see, our files have no extension. This is because Unix based systems do not rely on file extensions to determine the file type. The file type is determined by the file itself, and not by the extension. This is why you can have a file without an extension, and it will still work. While naming files with their correct extension is a good practise, it is sometimes better and of course quicker to create a file simply named `f`.
+
+### Little tip
 
 Yeah and about all that tedious writing we are doing? You can use `Tab` to autocomplete the thing you are just writing. Using $\uparrow$ and $\downarrow$ you can navigate through the history of commands you have written.

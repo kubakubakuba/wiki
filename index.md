@@ -7,9 +7,13 @@ hero:
   text: "a central guide page"
   tagline: not only for swpelc.eu
   actions:
-    - theme: brand
+    #- theme: brand
+    - theme: alt
       text: Programming Basics
       link: /programming
+    - theme: alt
+      text: ExpaCalendar
+      link: /expacalendar
     #- theme: alt
     #  text: API Examples
     #  link: /api-examples

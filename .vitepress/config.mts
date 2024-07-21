@@ -10,7 +10,8 @@ export default defineConfig({
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Programming basics', link: '/programming' }
+			{ text: 'Programming basics', link: '/programming' },
+			{ text: 'ExpaCalendar', link: '/ExpaCalendar' }
 		],
 
 		sidebar: [
@@ -20,11 +21,17 @@ export default defineConfig({
 					{ text: 'The basics', link: '/programming/basics' },
 					{ text: 'Writing a first program', link: '/programming/first' }
 				]
+			},
+			{
+				text: 'ExpaCalendar',
+				items: [
+					{ text: 'Credentials', link: '/ExpaCalendar/credentials' }
+				]
 			}
 		],
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+			{ icon: 'github', link: 'https://github.com/kubakubakuba' }
 		],
 
 		editLink: {
