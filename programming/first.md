@@ -95,5 +95,11 @@ for example
 make && make install && make clean
 ```
 
+When we simple want to run multiple programs without ignoring the results, we can use `;`
 
-... continue
+```bash
+echo "Hello"; echo " World!"
+```
+
+
+... to be continued

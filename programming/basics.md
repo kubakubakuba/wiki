@@ -165,6 +165,30 @@ You can view what you have just saved by using `cat` command.
 jakub@server:~$ cat hello
 ```
 
+### Running a program
+
+To this point we have only run system commands, but what if we installed a program and we want to run it? What actually happens is that bash finds the program by that name in the directories listed in the `PATH` variable. This variable is a list of directories separated by `:`. You can view the `PATH` variable by running `echo $PATH`.
+
+```bash
+jakub@server:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+
+To know where the program is located, you can use the `which` command.
+
+```bash
+jakub@server:~$ which code
+/usr/bin/code
+jakub@server:~$ which nano
+/usr/bin/nano
+```
+
+So as you can clearly see, what is possible to happen is that a program can exist, that is not in the `PATH` variable, and we can run it by specifying the full path to the program.
+
+```bash
+jakub@server:~$ /usr/bin/code
+```
+
 As you can see, our files have no extension. This is because Unix based systems do not rely on file extensions to determine the file type. The file type is determined by the file itself, and not by the extension. This is why you can have a file without an extension, and it will still work. While naming files with their correct extension is a good practise, it is sometimes better and of course quicker to create a file simply named `f`.
 
 Yeah and about all that tedious writing we are doing? You can use `Tab` to autocomplete the thing you are just writing. Using $\uparrow$ and $\downarrow$ you can navigate through the history of commands you have written.
