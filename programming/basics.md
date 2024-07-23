@@ -190,11 +190,113 @@ jakub@server:~$ export PATH=$PATH:/home/jakub/hello
 jakub@server:~$ world
 Hello, world!
 ```
+### Sudo
+
+What is sudo? Sudo stands for SuperUser DO, and it is a command that allows you to run other commands as a superuser, or root. The superuser is a special user that has the power to do anything on the system. This includes installing and removing software, changing system settings, and more. The superuser is also known as the root user, because the root directory is the top-level directory in the filesystem.
+
+```bash
+jakub@server:~$ apt update
+E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+jakub@server:~$ sudo apt update
+[sudo] password for jakub:
+```
 
 ### File extensions
 
 As you can see, our files have no extension. This is because Unix based systems do not rely on file extensions to determine the file type. The file type is determined by the file itself, and not by the extension. This is why you can have a file without an extension, and it will still work. While naming files with their correct extension is a good practise, it is sometimes better and of course quicker to create a file simply named `f`.
 
+
 ### Little tip
 
 Yeah and about all that tedious writing we are doing? You can use `Tab` to autocomplete the thing you are just writing. Using $\uparrow$ and $\downarrow$ you can navigate through the history of commands you have written.
+
+## Linux distributions
+
+After you logged in to the server via ssh, you may have seen that you have been greeted by `Ubuntu` instead of just `'Linux'`, what the hell is Ubuntu? To say it simply the name `'Linux'` is the name of the kernel, the heart of the operating system, while Ubuntu and others are distributions of the Linux operating system. A distribution is a version of the operating system that includes the kernel, system utilities, and other software. There are many different distributions of Linux, each with its own unique features and design.
+
+The main difference between distributions is the package manager.
+
+### Package manager
+
+A package manager is a tool that is used to install, update, and remove software packages on a Linux system. This saves users a lot of hassle while installing applications that have been prepackaged by authors of said application (while it still sometimes can be a bit of a hassle).
+
+#### Ubuntu / Debian
+
+On Ubuntu (and Debian), the package manager is simply called apt.
+
+```bash
+jakub@server:~$ sudo apt update
+```
+
+Updates the list of available packages, and their versions, but does not install or upgrade any packages.
+
+```bash
+jakub@server:~$ sudo apt upgrade
+```
+
+Upgrades all of the installed packages to their latest versions.
+
+```bash
+jakub@server:~$ sudo apt install package
+```
+
+Installs a package.
+
+```bash
+jakub@server:~$ sudo apt remove package
+```
+
+Removes a package.
+
+#### Arch Linux
+
+The installing of a package could be a very different story, were you to be on a different `flavour` of Linux. For example, on `Arch` (if you managed to install it successfully), you would use `pacman` instead of `apt`.
+
+```bash
+jakub@server:~$ sudo pacman -Syu
+jakub@server:~$ sudo pacman -S package
+jakub@server:~$ sudo pacman -R package
+```
+
+You can also install packages from source, that you compile yourself during the installation process. For example using yay
+
+```bash
+jakub@server:~$ yay -S package
+```
+
+#### NixOS
+
+On the other hand, for example `NixOS` (using [nixpkgs](https://search.nixos.org/packages) manager), you can not install packages directly, you rather create a virtual environment (a sandbox) where you can install the package. Or you rebuild the whole system with the package included - the whole system is *immutable* (unchangeable).
+
+```bash
+jakub@server:~$ nix-shell -p package
+```
+
+There is a way to do a more complex environment, but you will need to learn functional and highly esoterical programming language `Nix`.
+
+*shell.nix:*
+
+
+```nix
+with import <nixpkgs> {};
+	let
+	pp = pkgs.python311Packages;
+	in pkgs.mkShell rec{
+		buildInputs = [
+			maven
+			jdk
+			vscode-fhs
+			pp.numpy
+			pp.pandas
+		];
+		shellHook = ''
+			exec zsh
+		'';
+	}
+```
+
+You then run it and use the packages installed in the environment created, without pollution of the system. This can save a lot of dependency hell.
+```bash
+jakub@server:~$ nix-shell
+[nix-shell:~]$ mvn --version
+```
