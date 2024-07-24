@@ -276,7 +276,6 @@ There is a way to do a more complex environment, but you will need to learn func
 
 *shell.nix:*
 
-
 ```nix
 with import <nixpkgs> {};
 	let

@@ -10,3 +10,4 @@ Here are some of the lectures and materials which you may find interesing:
 
 - [B4B33RPH, 'problems and games' - entry level course to programming on CTU FEE [Python]](https://cw.fel.cvut.cz/wiki/courses/b4b33rph/start)
 - [B0B36PRP, procedural programming course on CTU FEE [C]](https://cw.fel.cvut.cz/wiki/courses/b0b36prp/start)
+- [B4B35OSY, operating sytems course on CTU FEE [Bash, C, C++]](https://osy.pages.fel.cvut.cz/)
