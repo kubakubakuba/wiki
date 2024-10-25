@@ -14,6 +14,9 @@ class Config:
 		self.calendar_link = 'longlink@group.calendar.google.com'
 		self.calendar_shortlink = 'http://goo.gl/shorlink'
 		self.output_folder = 'programy2024'
+		self.name = 'Mikroexpedice'
+		self.start_date = '2024;10;25'
+		self.end_date = '2024;10;28'
 		self.qr_size = 40
 		self.lang = 'cz'
 		self.rick_probability = 5
@@ -30,7 +33,7 @@ events = calendar.get_calendar_events()
 calendar.generate_pdf(events)
 
 ```
-Don't forget to install the required packages using the following command:
+Don't forget to install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
