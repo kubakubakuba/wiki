@@ -1,0 +1,65 @@
+[task]
+name = "Read an save to memory"
+template = "S_templates/memory.S"
+
+description = '''
+# Read and save to memory
+
+Write a program that loads 2 32-bit values from memory starting at the adress 0x400 into two registers (a0 and a1).
+Then add the values in a0 and a1, and store the result in a2.
+Save the result in memory after the two values that were loaded.
+'''
+
+[arguments]
+run = "--d-regs --dump-cycles --cycle-limit 100"
+
+[[inputs]]
+data_in = "Two values in memory starting at address 0x400."
+data_out = "The values in registers, the sum in register a2, and the sum in memory after the two values."
+description = "Loading of values from memory."
+
+[[testcases]]
+name = "test01"
+
+[[testcases.reference_regs]]
+a0 = 5
+a1 = 10
+a2 = 15
+
+[[testcases.starting_mem]]
+0x400 = [5, 10]
+
+[[testcases.reference_mem]]
+0x408 = [15]
+
+[[testcases]]
+name = "test02"
+
+[[testcases.starting_mem]]
+0x400 = [150, 200]
+
+[[testcases.reference_mem]]
+0x408 = [350]
+
+[[testcases]]
+name = "test03"
+
+[[testcases.starting_mem]]
+0x400 = [1523, 1459]
+
+[[testcases.reference_mem]]
+0x408 = [2982]
+
+[[testcases]]
+name = "scoring testcase"
+private = true
+
+[[testcases.starting_mem]]
+0x400 = [1711, 1989]
+
+[[testcases.reference_mem]]
+0x408 = [3700]
+
+[score]
+description = "Runtime of the program in cycles."
+testcase = "scoring testcase"

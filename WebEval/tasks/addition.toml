@@ -1,0 +1,35 @@
+[task]
+name = "Simple value addition"
+template = "S_templates/addition.S"
+
+description = '''
+# Simple value addition
+
+Write a program that loads a value `10` into register a1 and value `12` into register a2.
+Then, add the values and store the result in register a3.
+'''
+
+[arguments]
+run = "--d-regs --dump-cycles --cycle-limit 100"
+
+[[inputs]]
+data_in = "None"
+data_out = "Save the result of the addition in register a2."
+description = "Sample task, simple loading of values"
+
+[[testcases]]
+name = "test01"
+
+[[testcases.reference_regs]]
+a1 = 10
+a2 = 12
+
+[[testcases]]
+name = "test02"
+
+[[testcases.reference_regs]]
+a3 = 22
+
+[score]
+description = "Scoring based on the number of cycles used to execute the program."
+testcase = "test02"

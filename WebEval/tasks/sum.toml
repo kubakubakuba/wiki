@@ -1,0 +1,71 @@
+[task]
+name = "Vector sum"
+template = "S_templates/sum.S"
+
+description = '''
+# Vector sum
+
+Write a program that loads `n` positive 32-bit integers starting at address `vect_start`, `n` (vector length) will be stored at address `vect_len`.
+Sum all those numbers and save the values at address `vect_sum`. Store the minimum at address `vect_min` and the maximum at `vect_max`.
+'''
+
+[arguments]
+run = "--d-regs --dump-cycles --cycle-limit 5000"
+
+[[inputs]]
+data_in = "Vector starting at address vect_start, size of the vector at vect_len."
+data_out = "Vector sum at address vect_sum, minimum at vect_min and maximum at vect_max."
+description = "Vector sum, minimum and maximum."
+
+[[testcases]]
+name = "vector of length 10"
+
+[[testcases.starting_mem]]
+vect_len = [10]
+vect_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[testcases.reference_mem]]
+vect_sum = [55]
+vect_min = [1]
+vect_max = [10]
+
+[[testcases]]
+name = "vector of length 25"
+
+[[testcases.starting_mem]]
+vect_len = [25]
+vect_start = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368]
+
+[[testcases.reference_mem]]
+vect_sum = [121392]
+vect_min = [0]
+vect_max = [46368]
+
+[[testcases]]
+name = "reverse"
+
+[[testcases.starting_mem]]
+vect_len = [6]
+vect_start = [22445, 1214, 123145, 0, 555555, 1]
+
+[[testcases.reference_mem]]
+vect_sum = [702360]
+vect_min = [0]
+vect_max = [555555]
+
+[[testcases]]
+name = "scoring testcase"
+private = true
+
+[[testcases.starting_mem]]
+vect_len = [52]
+vect_start = [100, 50, 99, 49, 98, 48, 97, 47, 96, 46, 95, 45, 94, 44, 93, 43, 92, 42, 91, 41, 90, 40, 89, 39, 88, 38, 87, 37, 86, 36, 85, 35, 84, 34, 83, 33, 82, 32, 81, 31, 80, 30, 79, 29, 78, 28, 77, 27, 76, 26, 75, 25]
+
+[[testcases.reference_mem]]
+vect_sum = [3250]
+vect_min = [25]
+vect_max = [100]
+
+[score]
+description = "Runtime of the program in cycles."
+testcase = "scoring testcase"

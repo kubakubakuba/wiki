@@ -1,0 +1,245 @@
+[task]
+name = "Matrix multiplication"
+template = "S_templates/matrix.S"
+
+description = '''
+# Matrix multiplication.
+**Write a program that multiplies two matrices with one another.**
+
+The output of the program is a matrix \\( C \\), which is the result of the operation \\( C = A \times B \\), where
+\\( A \in R^{n \times m} \\), \\( B \in R^{m \times p} \\) and \\( C \in R^{n \times p} \\).
+
+The input matrix dimensions are located at addresses `matrix_a_rows`, `matrix_a_cols`, `matrix_b_rows` and `matrix_b_cols`.
+
+The data of matrix A is located at the address `matrix_a_start`, and the data of matrix B is located at the address `matrix_b_start`. The matrix data is stored in row-major order (i.e. the first row is stored first, then the second row, and so on).
+
+Calculate the matrix \\( C \\) and store the result at the address `matrix_c_start`. Store the dimensions of the matrix \\( C \\) at the addresses `matrix_c_rows` and `matrix_c_cols`.
+
+If the dimensions of the input matrices are not compatible, set the output dimensions to \\( -1 \\).
+##### Note
+
+Matrix multiplication is defined as:
+\\[ c_{ij} = \sum_{k=1}^{m} a_{ik} \cdot b_{kj} \\] where \\( c_{ij} \\) is the element at the \\( i \\)-th row and \\( j \\)-th column of the matrix \\( C \\).
+
+This can be graphically represented as:
+
+$$
+\begin{bmatrix}
+	a_{11} & a_{12} & \cdots & a_{1n}\\\\
+	a_{21} & a_{22} & \cdots & a_{2n}\\\\ 
+	\vdots & \vdots & \ddots & \vdots\\\\ 
+	a_{m1} & a_{m2} & \cdots & a_{mn} 
+\end{bmatrix}
+\times
+\begin{bmatrix}
+	b_{11} & b_{12} & \cdots & b_{1p}\\\\
+	b_{21} & b_{22} & \cdots & b_{2p}\\\\ 
+	\vdots & \vdots & \ddots & \vdots\\\\ 
+	b_{n1} & b_{n2} & \cdots & b_{np} 
+\end{bmatrix}
+=
+$$
+$$
+\begin{bmatrix}
+	a_{11} \cdot b_{11} + \cdots + a_{1n} \cdot b_{n1} & \cdots & a_{11} \cdot b_{1p} + \cdots + a_{1n} \cdot b_{np}\\\\
+	a_{21} \cdot b_{11} + \cdots + a_{2n} \cdot b_{n1} & \cdots & a_{21} \cdot b_{1p} + \cdots + a_{2n} \cdot b_{np}\\\\
+	\vdots & \ddots & \vdots\\\\
+	a_{m1} \cdot b_{11} + \cdots + a_{mn} \cdot b_{n1} & \cdots & a_{m1} \cdot b_{1p} + \cdots + a_{mn} \cdot b_{np}
+\end{bmatrix}
+$$
+
+This can be represented by the following code:
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < p; j++) {
+            for (int k = 0; k < m; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+In python, you can test matrix multiplication with the following code:
+    
+    import numpy as np
+    A = np.array([[1, 2, 3], [4, 5, 6]])
+    B = np.array([[1, 0], [0, 1], [1, 1]])
+    C = A @ B
+
+**This task was not yet properly tested, it may not work as expected. If you find any issues, please report them.**
+'''
+
+[arguments]
+run = "--dump-cycles --cycle-limit 200000"
+
+[[inputs]]
+data_in = "Two matrices A and B at addresses matrix_a_start and matrix_b_start, with dimensions at addresses matrix_a_rows, matrix_a_cols, matrix_b_rows and matrix_b_cols."
+data_out = "Matrix C at address matrix_c_start, with dimensions at addresses matrix_c_rows and matrix_c_cols."
+description = "Matrix multiplication"
+
+[[testcases]]
+name = "matrices 2x2"
+
+[[testcases.starting_mem]]
+matrix_a_rows = [2]
+matrix_a_cols = [2]
+matrix_b_rows = [2]
+matrix_b_cols = [2]
+matrix_a_start = [1, 2, 3, 4]
+matrix_b_start = [1, 0, 0, 1]
+
+[[testcases.reference_mem]]
+matrix_c_rows = [2]
+matrix_c_cols = [2]
+matrix_c_start = [1, 2, 3, 4]
+
+[[testcases]]
+name = "matrices 3x5 5x4"
+
+[[testcases.starting_mem]]
+matrix_a_rows = [3]
+matrix_a_cols = [5]
+matrix_b_rows = [5]
+matrix_b_cols = [4]
+matrix_a_start = 	[46, 12, 0, 4, 3,
+					7, 8, 45, 9, 1,
+					7, 9, 7, 9, 22]
+
+matrix_b_start = [78, 98, 12, 65,
+				 74, 0, 0, 0, 
+				 0, 4, 22, 7,
+				 9, 54, 7, 6,
+				 4, 12, 3, 78]
+
+[[testcases.reference_mem]]
+matrix_c_rows = [3]
+matrix_c_cols = [4]
+matrix_c_start = 	[4524, 4760, 589, 3248,
+					1223, 1364, 1140, 902,
+					1381, 1464, 367, 2274]
+
+[[testcases]]
+name = "large matrices"
+
+[[testcases.starting_mem]]
+matrix_a_rows = [4]
+matrix_a_cols = [25]
+matrix_b_rows = [25]
+matrix_b_cols = [5]
+
+matrix_a_start=[27, 21, 98, 40, 31, 41, 93, 46, 90, 81, 84, 20, 98, 78,  9, 87, 19, 89, 77, 90, 26, 34, 40, 34, 54,
+				70, 69, 68, 41, 28, 80, 31, 59, 90, 80, 40, 54, 53, 68, 31, 42, 64, 11, 87, 61, 94,  1, 33, 21, 33,
+				24, 22, 63, 34, 41, 45, 14,  2, 40,  7, 29,  0, 25, 57, 16, 57, 63, 66, 39, 91, 50,  3, 62, 87, 9,
+				67, 49, 58, 16, 47, 97, 94, 20, 54, 75, 83, 70, 28, 53, 27, 84, 68, 97, 97, 82, 78, 55, 94, 28, 88]
+
+matrix_b_start=[68, 26, 62, 25, 67,
+				3, 16, 66, 82, 37,
+				75, 60, 39, 36, 22,
+				42,  6,  2, 57, 53,
+				9, 47,  8, 95, 38,
+				19, 98, 63, 62, 65,
+				91, 21,  4, 80, 99,
+				17, 64, 58, 50, 58,
+				51, 85, 84, 34, 98,
+				75,  9, 58, 65, 26,
+				31, 30, 27, 79, 26,
+				21,  6, 58, 61,  0,
+				45, 22, 92, 25, 67,
+				90, 96, 34, 21, 20,
+				88, 81, 31, 98, 35,
+				20, 56, 99, 69, 85,
+				82,  6, 89, 44, 22,
+				21, 76, 60, 90, 39,
+				90, 15, 24, 94, 25,
+				70, 90, 71, 86, 88,
+				25, 65, 25, 42, 51,
+				7, 15, 37, 90, 94,
+				87, 21, 61, 15, 38,
+				33, 92, 94, 80, 82,
+				97,  6, 50,  6, 12]
+
+[[testcases.reference_mem]]
+matrix_c_rows = [4]
+matrix_c_cols = [5]
+
+matrix_c_start=[76268, 66419, 74592, 82206, 74738,
+				69123, 60247, 69956, 72287, 62813,
+				49491, 53386, 54461, 56462, 50044,
+				85449, 69429, 83196, 95781, 78396]
+
+[[testcases]]
+name = "incompatible matrices"
+
+[[testcases.starting_mem]]
+matrix_a_rows = [3]
+matrix_a_cols = [5]
+matrix_b_rows = [4]
+matrix_b_cols = [3]
+
+matrix_a_start = [0]
+matrix_b_start = [0]
+
+[[testcases.reference_mem]]
+matrix_c_rows = [-1]
+matrix_c_cols = [-1]
+
+[[testcases]]
+name = "scoring testcase 10x20 20x7"
+private = true
+
+[[testcases.starting_mem]]
+matrix_a_rows = [10]
+matrix_a_cols = [20]
+matrix_b_rows = [20]
+matrix_b_cols = [7]
+
+matrix_a_start= [0, 34, 75,  6, 86, 27, 60, 77, 50, 59, 33, 37, 77, 91, 11, 81, 27,  0, 79, 46,
+				0, 83, 13,  8, 58,  6,  3,  2, 71,  6, 63, 34, 14, 31, 77, 91, 13, 27, 42, 69,
+				0, 92, 88, 14,  5, 60, 18, 98, 75, 14, 33, 33, 83, 33, 39, 26, 53, 38, 86,  3,
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0, 0, 0, 0,
+				0, 35, 69, 14, 94, 71, 17, 94,  0, 41, 41, 82, 80, 28, 23, 96, 16, 47, 61, 14,
+				0, 78, 13,  7, 81, 43, 80,  2, 14,  8,  5,  9, 54, 78, 97, 95, 66, 76, 96, 39,
+				0, 32, 67, 51, 18, 79,  5, 35, 69, 74, 68,  3, 68, 82, 19, 32, 98, 30,  6, 64,
+				0, 52, 29, 38, 60, 65,  4, 74, 91, 29, 19, 44,  7,  6, 98,  0, 76, 15, 43, 99,
+				0, 16, 23, 92,  2, 72, 56, 70, 45,  1, 47, 64, 15,  4, 81, 92, 35, 20, 33, 99,
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+matrix_b_start=[0, 0, 0,  0, 0, 0, 0,
+				0, 54, 68,  4, 30, 73, 0,
+				0, 41,  1, 49, 33, 15,  0,
+				0, 54, 63,  1, 71, 61,  0,
+				0, 51, 44, 13, 42, 35, 0,
+				0, 92, 41, 32, 35, 47, 0,
+				0, 0, 0, 0, 0, 0, 0,
+				0, 41,  2, 81, 51, 96,  0,
+				0, 26, 23, 95, 68, 42, 0,
+				0, 60,  7, 75, 58, 43,  0,
+				0, 16, 58, 73, 29,  7, 0,
+				0, 20, 97, 63,  0, 29, 0,
+				0, 81, 38,  0, 27, 95, 0,
+				0,  2,  8, 36, 83, 71, 0,
+				0, 85, 16, 62, 18, 15, 0,
+				0, 69,  9, 31, 40, 49, 0,
+				0, 47,  8, 74, 68,  0, 0,
+				0, 59, 37, 83, 13,  3, 0,
+				0, 51, 51, 58, 39, 96, 0,
+				0, 0, 0, 0, 0, 0, 0]
+
+[[testcases.reference_mem]]
+matrix_c_rows = [10]
+matrix_c_cols = [7]
+
+matrix_c_start=[	0, 39611, 23680, 39000, 38171, 47079,     0,
+					0, 31299, 23666, 30371, 24088, 27171,     0,
+					0, 44120, 27532, 43756, 35009, 46690,     0,
+					0,     0,     0,     0,     0,     0,     0,
+					0, 47162, 30659, 39910, 31931, 45157,     0,
+					0, 46208, 25949, 34936, 32534, 38814,     0,
+					0, 40409, 21929, 41529, 40606, 35599,     0,
+					0, 38972, 24316, 41155, 31696, 32020,     0,
+					0, 38597, 25492, 35278, 28228, 32077,     0,
+					0,     0,     0,     0,     0,     0,     0]
+
+
+[score]
+description = "Runtime of the program in cycles."
+testcase = "scoring testcase 10x20 20x7"

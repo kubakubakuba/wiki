@@ -9,8 +9,8 @@ hero:
   actions:
     #- theme: brand
     - theme: alt
-      text: Programming Basics
-      link: /programming
+      text: WebEval
+      link: /WebEval
     - theme: alt
       text: ExpaCalendar
       link: /ExpaCalendar

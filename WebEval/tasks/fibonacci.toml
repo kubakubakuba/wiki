@@ -1,0 +1,93 @@
+[task]
+name = "Fibonacci sequence without the hazard unit"
+template = "S_templates/fib.S"
+
+description = '''
+Write a code for the calculation of the N-th Fibonacci number (for \\(N > 2\\)). The Fibonacci sequence is defined as follows:
+
+$$ F(n) = F(n-1) + F(n-2) $$ for \\( n > 2 \\), and $$ F(0) = 0, F(1) = 1 $$
+
+Here are the first few numbers in the Fibonacci sequence:
+$$ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,... $$
+
+Modify the code in such a way that it does have no hazards (the code produces correct results in the pipelined execution without the hazard unit). Minimize the number of nops in your code. Prefer instruction reordering whenever possible.
+
+The input number 'n' is at location 'input'. Save your result to location output. Execute with pipeline with no hazard unit.
+
+## A possible solution in C
+    :::c
+    t0 = 5;  //  Set value of N
+    s0 = 0;  //  F(0)
+    s1 = 1;  //  F(1)
+
+    for(t1 = 2; t1 <= t0; t1++)
+    {
+            t2 = s0 + s1;
+            s0 = s1;
+            s1 = t2;
+    }
+
+'''
+
+[arguments]
+run = "--dump-cycles --pipelined --hazard-unit none --cycle-limit 1000"
+
+[[inputs]]
+data_in = "Size of the array located at address fibo_limit."
+data_out = "Array of Fibonacci numbers starting at the address fibo_series."
+description = "Data hazard prevention."
+
+[[testcases]]
+name = "3"
+[[testcases.starting_mem]]
+input = [3]
+[[testcases.reference_mem]]
+output = [2]
+
+[[testcases]]
+name = "4"
+[[testcases.starting_mem]]
+input = [4]
+[[testcases.reference_mem]]
+output = [3]
+
+[[testcases]]
+name = "5"
+[[testcases.starting_mem]]
+input = [5]
+[[testcases.reference_mem]]
+output = [5]
+
+[[testcases]]
+name = "8"
+[[testcases.starting_mem]]
+input = [8]
+[[testcases.reference_mem]]
+output = [21]
+
+[[testcases]]
+name = "15"
+[[testcases.starting_mem]]
+input = [15]
+[[testcases.reference_mem]]
+output = [610]
+
+[[testcases]]
+name = "larger"
+private = true
+[[testcases.starting_mem]]
+input = [17]
+[[testcases.reference_mem]]
+output = [1597]
+
+[[testcases]]
+name = "benchmark"
+private = true
+[[testcases.starting_mem]]
+input = [40]
+[[testcases.reference_mem]]
+output = [102334155]
+
+[score]
+description = "Runtime of the program in cycles."
+testcase = "benchmark"
