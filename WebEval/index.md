@@ -4,6 +4,6 @@ Welcome to the QtRVSim Web Evaluator Wiki page. This guide will help you to unde
 
 If you are a User, looking for a guide on how to start using this application, head over to the [User manual page](./user).
 
-If you are a Developer, that wants to deploy this application, or you wish to contribute to this project, head over to the [Developer manual page](./developer).
+If you are a Developer, that wants to deploy this application, or you wish to contribute to this project, head over to the [Developer manual page](./dev).
 
 ![QtRVSim Web Evaluator](./img/favicon.png)
