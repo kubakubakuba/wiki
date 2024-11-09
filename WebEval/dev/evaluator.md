@@ -53,7 +53,7 @@ The evaluation process takes place in `/tmp/qtrvsim_web_eval/` folder, each subm
 | Other| Rejected | The solution is incorrect. |
 
 :::info
-Note that this is the exact definition of result codes as define in [`web/templates/task.html`](https://gitlab.fel.cvut.cz/b35apo/qtrvsim-eval-web/-/blob/main/web/templates/task.html?ref_type=heads), some of these codes are directly returned by the evaluator, some are set by the web application.
+Note that this is the exact definition of result codes as defined in [`web/templates/task.html`](https://gitlab.fel.cvut.cz/b35apo/qtrvsim-eval-web/-/blob/main/web/templates/task.html?ref_type=heads), some of these codes are directly returned by the evaluator, some are set by the web application.
 :::
 
 ## Evaluation with Python
