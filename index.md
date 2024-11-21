@@ -28,6 +28,11 @@ features:
     details: Setup of the PDF calendar generator for Astronomická Expedice.
     link: /WebEval/user/
 
+  - title: Tutorials
+    icon: ツ
+    details: A random collection of various tutorials.
+    link: /tutorials/
+
   #- title: Developer Manual
   #  icon: δ
   #  details: Want to contribute or deploy the application? Check the developer manual.

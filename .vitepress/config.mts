@@ -11,7 +11,8 @@ export default defineConfig({
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'WebEval', link: '/WebEval' },
-			{ text: 'ExpaCalendar', link: '/ExpaCalendar' }
+			{ text: 'ExpaCalendar', link: '/ExpaCalendar' },
+			{ text: 'Tutorials', link: '/tutorials' }
 		],
 
 		sidebar: [
@@ -56,6 +57,17 @@ export default defineConfig({
 				link: '/ExpaCalendar/',
 				items: [
 					{ text: 'Credentials', link: '/ExpaCalendar/credentials' }
+				]
+			},
+			{
+				text: 'Tutorials',
+				link: '/tutorials/',
+				items: [
+					{ text: 'Wireguard', link: '/tutorials/wireguard' },
+					{ text: 'Systemd', link: '/tutorials/systemd' },
+					{ text: 'Reverse proxy', link: '/tutorials/reverse-proxy' },
+					{ text: 'HTTPS setup', link: '/tutorials/https' }
+
 				]
 			}
 		],
