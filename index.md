@@ -26,7 +26,7 @@ features:
   - title: ExpaCalendar
     icon: ぱ
     details: Setup of the PDF calendar generator for Astronomická Expedice.
-    link: /WebEval/user/
+    link: /ExpaCalendar/
 
   - title: Tutorials
     icon: ツ
