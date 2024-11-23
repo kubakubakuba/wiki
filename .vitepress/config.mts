@@ -66,7 +66,8 @@ export default defineConfig({
 					{ text: 'Wireguard', link: '/tutorials/wireguard' },
 					{ text: 'Systemd', link: '/tutorials/systemd' },
 					{ text: 'Reverse proxy', link: '/tutorials/reverse-proxy' },
-					{ text: 'HTTPS setup', link: '/tutorials/https' }
+					{ text: 'HTTPS setup', link: '/tutorials/https' },
+					{ text: 'Oracle Could VPS', link: '/tutorials/oracle' },
 
 				]
 			}

@@ -30,4 +30,9 @@ features:
     details: Secure your website with HTTPS.
     link: ./https
 
+  - title: Oracle Cloud
+    icon: ☁️
+    details: Learn how to use Oracle Cloud to create a VPS.
+    link: ./oracle
+
 ---
