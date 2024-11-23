@@ -1,6 +1,8 @@
 [task]
 name = "Simple value addition"
 template = "S_templates/addition.S"
+submit_start = "2024-01-01T00:00:00Z"
+submit_end = "2024-12-31T23:59:59Z"
 
 description = '''
 # Simple value addition

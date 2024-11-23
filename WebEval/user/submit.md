@@ -26,7 +26,7 @@ In the middle of the page, there is a section for the results of your submission
 
 Here you can see the run times of other users that have submitted the task. You can see your best solution in green and your last in yellow.
 
-Your username is displayed in the brackets, your display name is displayed in displayed in front of it. If you click on view next to the score, you can see your submission, admins can see all submissions.
+Your username is displayed in the brackets, your display name is displayed in displayed in front of it. If you click on the eye icon, you can see your submission source code.
 
 ![Right](../img/uiright.png)
 

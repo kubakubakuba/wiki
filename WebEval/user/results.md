@@ -13,7 +13,7 @@ If you make an error in your code, it will be reported to you by an error messag
 ### Wrong output
 ![wrong output](../img/wrongout.png)
 
-Mostly caused by an incorrect algorithm, check for off-by-one errors, or other common mistakes.
+Most likely caused by an incorrect algorithm, check for off-by-one errors, or other common mistakes.
 
 ### Timeout
 ![timeout](../img/timeout.png)

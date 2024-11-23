@@ -35,7 +35,7 @@ For each submission fetched, it is evaluated according to the task definition fi
 The evaluation results are saved in the database.
 
 :::info
-The evaluation process takes place in `/tmp/qtrvsim_web_eval/` folder, each submission is beaing evaluated in a seperate folder with the `pid` of the evaluator process.
+The evaluation process takes place in `/tmp/qtrvsim_web_eval/` folder, each submission is being evaluated in a seperate folder with the `pid` of the evaluator process.
 :::
 
 ## Evaluator results

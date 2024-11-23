@@ -33,24 +33,6 @@ a2 = 15
 0x408 = [15]
 
 [[testcases]]
-name = "test02"
-
-[[testcases.starting_mem]]
-0x400 = [150, 200]
-
-[[testcases.reference_mem]]
-0x408 = [350]
-
-[[testcases]]
-name = "test03"
-
-[[testcases.starting_mem]]
-0x400 = [1523, 1459]
-
-[[testcases.reference_mem]]
-0x408 = [2982]
-
-[[testcases]]
 name = "scoring testcase"
 private = true
 

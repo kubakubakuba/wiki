@@ -27,7 +27,9 @@ export default defineConfig({
 						items: [
 							{ text: 'Getting started', link: '/WebEval/user/start' },
 							{ text: 'Submitting a solution', link: '/WebEval/user/submit' },
-							{ text: 'Checking results', link: '/WebEval/user/results' }
+							{ text: 'Checking results', link: '/WebEval/user/results' },
+							{ text: 'Profile settings', link: '/WebEval/user/profile' },
+							{ text: 'Scoreboard', link: '/WebEval/user/scoreboard' }
 						]
 					},
 					{
